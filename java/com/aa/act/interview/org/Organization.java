@@ -5,7 +5,7 @@ import java.util.Optional;
 public abstract class Organization {
 
     private Position root;
-    
+
     public Organization() {
         root = createOrganization();
     }
@@ -20,8 +20,10 @@ public abstract class Organization {
      * @return the newly filled position or empty if no position has that title
      */
     public Optional<Position> hire(Name person, String title) {
-        //your code here
-        return Optional.empty();
+        Employee newHire = new Employee(person);
+        Position setPosition = new Position(title, newHire);
+
+        return Optional.of(setPosition);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.aa.act.interview.org;
 
 public class Employee {
-
+    private static int nextIdentifier = 1;
     private int identifier;
     private Name name;
 
@@ -9,6 +9,14 @@ public class Employee {
         if(name == null)
             throw new IllegalArgumentException("name cannot be null");
         this.identifier = identifier;
+        this.name = name;
+    }
+
+    //If identifier is not given we will use a basic counting system.
+    public Employee(Name name) {
+        if(name == null)
+            throw new IllegalArgumentException("name cannot be null");
+        this.identifier = nextIdentifier++;
         this.name = name;
     }
     
